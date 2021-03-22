@@ -77,9 +77,9 @@ putContent('Работает начало ' . date("H:i:s", $updatetime) . ' ', 
 /** База данных */
 $database = new Database(DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_CHARSET, DB_TABLE_PREFIX);
 
-$subdomain = 'oppopart';
+$subdomain = 'domain';
 $creds = $database->select(
-    'amo_users',
+    'table',
     '*',
     'subdomain LIKE "%' . $subdomain . '%"'
 );
