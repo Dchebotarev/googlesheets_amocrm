@@ -99,7 +99,7 @@ $apiClient->setAccessToken(new AccessToken([
 ]));
 
 // Подключаем Google_Sheets
-putenv('GOOGLE_APPLICATION_CREDENTIALS=' . dirname(__DIR__) . '/ageless-welder-294611-27334c99d2e6.json');
+putenv('GOOGLE_APPLICATION_CREDENTIALS=' . dirname(__DIR__) . '/*.json');
 
 // Документация https://developers.google.com/sheets/api/
 // Список всех возможных ошибок и исключений https://developers.google.com/drive/v3/web/handle-errors
@@ -109,7 +109,6 @@ $client->addScope('https://www.googleapis.com/auth/spreadsheets');
 $service = new Google_Service_Sheets($client);
 
 // ID таблицы, получаем информацию о листе
-// https://docs.google.com/spreadsheets/d/1vOt7d8NfCdeerI4AYEap7KUisaf_7HnE2e2g3Xe-_4E/edit#gid=0
 $spreadsheetId = '1vOt7d8NfCdeerI4AYEap7KUisaf_7HnE2e2g3Xe-_4E';
 $response = $service->spreadsheets->get($spreadsheetId);
 foreach ($response->getSheets() as $sheet) {
